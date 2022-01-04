@@ -1,0 +1,51 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+
+<style>
+body {
+    font-family: sans-serif;
+    background: black;
+    color: white;
+    margin: 0;
+    text-align: center;
+}
+h1 {
+    font-size: 5vw;
+}
+div {
+    padding: 2em;
+    color: black;
+}
+section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+</style>
+
+<!-- not supported yet?
+<input id=color type="color" colorspace="display-p3">
+    color.onchange = () => {
+        console.log(color.value);
+    };
+ -->
+ <script type="module">
+    onload = () => {
+    const cr = () => {
+        const div = document.createElement("div");
+        container.appendChild(div);
+        return div;
+    };
+    for (let i = 1; i < 8; i++) {
+        const r = i & 1;
+        const g = (i & 2) >> 1;
+        const b = (i & 4) >> 2;
+        const d1 = cr();
+        d1.textContent = d1.style.backgroundColor = `rgb(${r * 255}, ${g * 255}, ${b * 255})`;
+        const d2 = cr();
+        d2.textContent = d2.style.backgroundColor = `color(display-p3 ${r} ${g} ${b})`;
+    }
+};
+</script>
+
+<h1>color(display-p3 x x x) CSS test</h1>
+<section id=container>
+</section>
