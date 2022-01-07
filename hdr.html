@@ -17,15 +17,7 @@ body span {
 <h1>HDR on web test</h1>
 <label><input type="checkbox" id="comp">compress height</label><br>
 <script type="module">
-onload = () => {
-  comp.onchange = () => {
-    if (comp.checked) {
-      document.querySelectorAll("img").forEach(img => img.classList.add("comp"));
-    } else {
-      document.querySelectorAll("img").forEach(img => img.classList.remove("comp"));
-    }
-  };
-};
+comp.onchange = () => document.querySelectorAll("img").forEach(img => img.classList.toggle("comp"));
 </script>
 <span>
   <h2>avif vs png</h2>
