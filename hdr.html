@@ -1,0 +1,43 @@
+<!DOCTYPE html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>HDR on web test</title>
+<style>
+body {
+  background-color: white;
+}
+body span {
+  display: inline-block;
+  vertical-align: top;
+}
+.comp {
+  width: 128px;
+  height: 400px;
+}
+</style>
+</head><body>
+<h1>HDR on web test</h1>
+<label><input type="checkbox" id="comp">compress height</label><br>
+<script type="module">
+onload = () => {
+  comp.onchange = () => {
+    if (comp.checked) {
+      document.querySelectorAll("img").forEach(img => img.classList.add("comp"));
+    } else {
+      document.querySelectorAll("img").forEach(img => img.classList.remove("comp"));
+    }
+  };
+};
+</script>
+<span>
+  <h2>avif vs png</h2>
+  <img src=test-16bit.avif><img src=test-16bit.png>
+</span>
+<span>
+  <h2>avif 16bit vs 8bit</h2>
+  <img src=test-16bit.avif><img src=test-8bit.avif>
+</span>
+<span>
+  <h2>png 16bit vs 8bit</h2>
+  <img src=test-16bit.png><img src=test-8bit.png>
+</span>
+</body>
+</html>
